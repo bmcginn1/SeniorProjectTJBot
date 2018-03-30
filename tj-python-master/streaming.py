@@ -31,12 +31,12 @@ from websocket._abnf import ABNF
 class StreamingSTT:
 
     # Mic config.
-    CHUNK = 16384
+    CHUNK = 1024
     FORMAT = pyaudio.paInt16
     # It is necessary to keep CHANNELS at 1. Streaming STT does not handle the
     # extra data well and returns unwanted hums.
     CHANNELS = 1
-    RATE = 48000
+    RATE = 44100
 
     # large array of json data returned by watson.
     FINAL = []
@@ -46,7 +46,7 @@ class StreamingSTT:
 
     # Threshold: above this point it is considered user speech, below this
     # point it is considered silence.
-    THRESHOLD = 1500
+    THRESHOLD = 1000
 
     # The amount of silence allowed after a sound that passes the
     # threshold in seconds.
@@ -191,8 +191,12 @@ class StreamingSTT:
             #print(str(silence_chunks) + " | " + str(limit_chunks))
             #if silence_chunks >= limit_chunks:
             #    break
-
-            data = stream.read(self.CHUNK)#, exception_on_overflow=False)
+            try:
+                data = stream.read(self.CHUNK)#, exception_on_overflow=False)
+            except:
+                stream.stop_stream()
+                stream.close()
+                break
             try:
                 ws.send(data, ABNF.OPCODE_BINARY)
             except:
