@@ -274,7 +274,7 @@ class StreamingSTT:
 
 
     # print those errors
-    def on_error(self, error):
+    def on_error(self, ws, error):
         logging.error(error)
 
     # inform coder dude that websocket was closed
@@ -310,7 +310,7 @@ class StreamingSTT:
             sslopt={
                 "cert_reqs": ssl.CERT_NONE,
                 "check_hostname": False,
-                "ssl_version": ssl.PROTOCOL_TLSv1
+                "ssl_version": ssl.PROTOCOL_TLSv1_2
             }
         )
 
@@ -415,7 +415,7 @@ if __name__ == "__main__":
             sslopt={
                 "cert_reqs": ssl.CERT_NONE,
                 "check_hostname": False,
-                "ssl_version": ssl.PROTOCOL_TLSv1
+                "ssl_version": ssl.PROTOCOL_TLSv1_2
             }
         )
 
