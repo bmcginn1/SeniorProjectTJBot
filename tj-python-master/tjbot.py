@@ -35,33 +35,40 @@ import RPi.GPIO as GPIO
 
 def main():
 
-    stt = streaming.StreamingSTT(
+    try:
+        stt = streaming.StreamingSTT(
 
-        # replace with speech to text credentials username
-        '1f900d96-d3fa-40f0-ab53-9a600f931796',
+            # replace with speech to text credentials username
+            '1f900d96-d3fa-40f0-ab53-9a600f931796',
 
-        # replace with speech to text credentials password
-        'GAyuVqI1EEMv')
+            # replace with speech to text credentials password
+            'GAyuVqI1EEMv')
+    except:
+        fatalFailure()
+    try:
+        tts = textToSpeech.TextToSpeech(
 
-    tts = textToSpeech.TextToSpeech(
+            # replace with text to speech credentials username
+            '2cb70eda-ccc5-40d7-adee-91c9aa249841',
 
-        # replace with text to speech credentials username
-        '2cb70eda-ccc5-40d7-adee-91c9aa249841',
+            # replace with text to speech credentials password
+            'zyzBtEqo73D7')
+    except:
+        fatalFailure()
 
-        # replace with text to speech credentials password
-        'zyzBtEqo73D7')
+    try:
+        convo = conversation.Conversation(
 
-    convo = conversation.Conversation(
+            # replace with conversation credentials username
+            '154b5b29-d1ca-4ff2-be09-c33c5e1d9e20',
 
-        # replace with conversation credentials username
-        '154b5b29-d1ca-4ff2-be09-c33c5e1d9e20',
+            # replace with conversation credentials password
+            'pmNftYlpvMS8',
 
-        # replace with conversation credentials password
-        'pmNftYlpvMS8',
-
-        # replace with workspace ID.
-        'da21184b-ae02-4159-9727-d994fc1bbaaf')
-
+            # replace with workspace ID.
+            'da21184b-ae02-4159-9727-d994fc1bbaaf')
+    except:
+        fatalFailure()
     # replace with robot name
     name = 'Bonnie'
 
@@ -102,15 +109,18 @@ def main():
     print('dead') """
 
     tts.speak('Hello my name is ' + name + ' I am the CBU admissions bot')
-    
-    
-        
-                
-            
-    
+
+
+
+
+
+
     while True:
         ledP.blue()
-        phrase = stt.get_phrase()
+        try:
+            phrase = stt.get_phrase()
+        except:
+            ledP.red()
         ledP.orange()
         if (name in phrase) or ('bunny'in phrase) or ('body' in phrase) or ('Bani' in phrase):
             response = convo.sendMessage(phrase)
@@ -185,10 +195,17 @@ def main():
                     servoP.wave(2)
                     response = response.replace('~ARMWAVE', '', 1)
                 if response == '':
-                    response = 'akward silence'
+                    response = 'awkward silence'
             ledP.pink()
             tts.speak(response)
-  
+
+def fatalFailure():
+    while(True):
+        ledP.red()
+        time.sleep(500)
+        ledP.customColor(0,0,0)
+        time.sleep(500)
+
 
 if __name__ == "__main__":
     main()
