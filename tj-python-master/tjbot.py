@@ -200,10 +200,10 @@ def main():
             tts.speak(response)
 
 def fatalFailure():
-    while(True):
+    while True:
         ledP.red()
         time.sleep(500)
-        ledP.customColor(0,0,0)
+        ledP.customColor(0, 0, 0)
         time.sleep(500)
 
 
