@@ -1,0 +1,13 @@
+digraph "classes" {
+charset="utf-8"
+rankdir=BT
+"0" [label="{Conversation|convo : ConversationV1\lworkspace_id\l|sendMessage()\l}", shape="record"];
+"1" [label="{Led|strip : Adafruit_NeoPixel\l|customColor()\lrainbow()\lrainbowCycle()\lstrobe()\lwheel()\l}", shape="record"];
+"2" [label="{LedProcess|led\lprocess : NoneType, Process\l|blue()\lcustomColor()\lgreen()\loff()\lorange()\lpink()\lpurple()\lrainbow()\lrainbowCycle()\lred()\lstop()\lstrobe()\lwheel()\lwhite()\lyellow()\l}", shape="record"];
+"4" [label="{Music|cmd\lfileLocation\lprocess : Popen\l|play()\lstop()\l}", shape="record"];
+"5" [label="{MusicProcess|music\lprocess : NoneType, Process\l|play()\lstop()\l}", shape="record"];
+"6" [label="{Servo|pwm\lpwm : NoneType\l|angle()\larmDown()\larmUp()\lwave()\l}", shape="record"];
+"7" [label="{ServoProcess|process : Process, NoneType\lservo\l|angle()\larmDown()\larmUp()\lstop()\lwave()\l}", shape="record"];
+"12" [label="{StreamingSTT|CHANNELS : int\lCHUNK\lCHUNK : int\lFINAL : list\lFINAL : list\lFINALRESPONSE : bool\lFINALRESPONSE : bool\lFORMAT\lFORMAT\lRATE\lRATE : int\lSILENCE_LIMIT\lSILENCE_LIMIT : int\lTHRESHOLD\lTHRESHOLD : int\lTIMEOUT\lTIMEOUT : int\lWS : NoneType\lWS : WebSocketApp\lcurrent_phrase : str\lp : PyAudio\luserpass : str\l|auto_threshold()\lget_chunk()\lget_format()\lget_phrase()\lget_rate()\lget_silence_limit()\lget_threshold()\lget_timeout()\lon_close()\lon_error()\lon_message()\lon_open()\lread_audio()\lset_chunk()\lset_format()\lset_rate()\lset_silence_limit()\lset_threshold()\lset_timeout()\l}", shape="record"];
+"13" [label="{TextToSpeech|fileLocation : str\lpas\ltext_to_speech : TextToSpeechV1\luser\l|play()\lspeak()\l}", shape="record"];
+}

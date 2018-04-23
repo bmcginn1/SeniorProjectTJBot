@@ -1,0 +1,26 @@
+digraph "packages" {
+charset="utf-8"
+rankdir=BT
+"1" [label="conversation", shape="box"];
+"2" [label="led", shape="box"];
+"3" [label="ledProcess", shape="box"];
+"5" [label="music", shape="box"];
+"6" [label="musicProcess", shape="box"];
+"7" [label="servo", shape="box"];
+"8" [label="servoProcess", shape="box"];
+"13" [label="streaming", shape="box"];
+"14" [label="textToSpeech", shape="box"];
+"15" [label="tjbot", shape="box"];
+"3" -> "2" [arrowhead="open", arrowtail="none"];
+"6" -> "5" [arrowhead="open", arrowtail="none"];
+"8" -> "7" [arrowhead="open", arrowtail="none"];
+"15" -> "1" [arrowhead="open", arrowtail="none"];
+"15" -> "2" [arrowhead="open", arrowtail="none"];
+"15" -> "3" [arrowhead="open", arrowtail="none"];
+"15" -> "5" [arrowhead="open", arrowtail="none"];
+"15" -> "6" [arrowhead="open", arrowtail="none"];
+"15" -> "7" [arrowhead="open", arrowtail="none"];
+"15" -> "8" [arrowhead="open", arrowtail="none"];
+"15" -> "13" [arrowhead="open", arrowtail="none"];
+"15" -> "14" [arrowhead="open", arrowtail="none"];
+}
