@@ -39,20 +39,20 @@ def main():
         stt = streaming.StreamingSTT(
 
             # replace with speech to text credentials username
-            '1f900d96-d3fa-40f0-ab53-9a600f931796',
+            '9d28bb42-fd0f-4126-ac66-2d0882fbe7f8',
 
             # replace with speech to text credentials password
-            'GAyuVqI1EEMv')
+            'Gixj8klOaqK4')
     except:
         fatalFailure()
     try:
         tts = textToSpeech.TextToSpeech(
 
             # replace with text to speech credentials username
-            '2cb70eda-ccc5-40d7-adee-91c9aa249841',
+            '6fa627fb-384e-4586-9a72-185b70c1f09a',
 
             # replace with text to speech credentials password
-            'zyzBtEqo73D7')
+            'zQYWSqHEA7dm')
     except:
         fatalFailure()
 
@@ -60,13 +60,13 @@ def main():
         convo = conversation.Conversation(
 
             # replace with conversation credentials username
-            '154b5b29-d1ca-4ff2-be09-c33c5e1d9e20',
+            'bdce62cf-d7f7-4cbc-8b0b-dee6950d1c01',
 
             # replace with conversation credentials password
-            'pmNftYlpvMS8',
+            'K5Cmn1aJ3He8',
 
             # replace with workspace ID.
-            'da21184b-ae02-4159-9727-d994fc1bbaaf')
+            '0c3cdb7b-3258-457e-a3b7-1b1236fea9c4')
     except:
         fatalFailure()
     # replace with robot name
